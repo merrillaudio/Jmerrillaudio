@@ -5,8 +5,6 @@
 [build.environment]
   NODE_VERSION = "22"
 
-# SPA fallback: wouter handles routing client-side, so every path
-# must serve index.html rather than 404 on a hard refresh.
 [[redirects]]
   from = "/*"
   to = "/index.html"
