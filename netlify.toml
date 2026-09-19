@@ -1,35 +1,12 @@
-# ---------------------------------------------------------------------------
-# TEMPORARY placeholder configuration.
-#
-# The real site is a Vite build; it is not being built right now because the
-# images it references are unavailable. This config skips the build and
-# publishes the static placeholder/ folder instead.
-#
-# TO RESTORE THE REAL SITE, replace this whole file with:
-#
-#   [build]
-#     command = "npm run build"
-#     publish = "dist"
-#
-#   [build.environment]
-#     NODE_VERSION = "22"
-#
-#   [[redirects]]
-#     from = "/*"
-#     to = "/index.html"
-#     status = 200
-#
-# (That is the original, also recoverable from this file's git history.)
-# ---------------------------------------------------------------------------
-
 [build]
-  # Explicit no-op. This overrides any build command saved in the Netlify UI,
-  # which would otherwise still run.
-  command = "echo 'Placeholder deploy - skipping Vite build'"
-  publish = "placeholder"
+  command = "npm run build"
+  publish = "dist"
 
-# Serve the placeholder for every path, so old links such as /services
-# and /contact land on it instead of returning 404.
+[build.environment]
+  NODE_VERSION = "22"
+
+# SPA fallback: wouter handles routing client-side, so every path
+# must serve index.html rather than 404 on a hard refresh.
 [[redirects]]
   from = "/*"
   to = "/index.html"
